@@ -9,12 +9,14 @@ import java.util.*;
 
 @Entity
 @Table(name = "users")
+@NamedEntityGraph(name = "User.roles",
+        attributeNodes = @NamedAttributeNode("roles"))
 public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private long id;
 
     @Column(name = "username", unique = true)
     private String username;
@@ -31,7 +33,10 @@ public class User implements UserDetails {
     @Column(name = "age")
     private int age;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "users_roles",
+            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")})
     private List<Role> roles = new ArrayList<>();
 
 
@@ -48,12 +53,12 @@ public class User implements UserDetails {
     }
 
 
-    public int getId() {
+    public long getId() {
 
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
 
         this.id = id;
     }
