@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New User</title>
+  <style>
+    .btn {
+      display: inline-block; /* Строчно-блочный элемент */
+      background: darkred; /* Серый цвет фона */
+      color: white; /* Белый цвет текста */
+      padding: 0.5rem 1rem; /* Поля вокруг текста */
+      text-decoration: none; /* Убираем подчёркивание */
+      border-radius: 3px; /* Скругляем уголки */
+    }
+  </style>
+</head>
+<body>
+<form th:method="POST" th:action="@{/admin/}" th:object="${newUser}">
+  <input type="hidden" name="id" th:field="*{id}">
+  <label for="username">Enter username: </label>
+  <input name="username" type="text" id="username" th:field="*{username}">
+  <br><br>
+  <label for="password">Enter password: </label>
+  <input name="password" type="text" id="password" th:field="*{password}"/>
+  <br><br>
+  <label for="name">Enter name: </label>
+  <input name="name" type="text" id="name" th:field="*{name}">
+  <br><br>
+  <label for="surname">Enter surname: </label>
+  <input name="surname" type="text" id="surname" th:field="*{surname}"/>
+  <br><br>
+  <label for="age">Enter age:</label>
+  <input name="age" type="text" id="age" th:field="*{age}"/>
+  <br><br>
+
+  Select a role:
+  <br><br>
+  <input type=checkbox id=adminId name=roles[] value=1>
+  <label for="adminId">Admin</label>
+  <br><br>
+  <input type=checkbox id=userId name=roles[] value=2>
+  <label for="userId">User</label>
+
+
+  <br><br>
+  <input type="submit" value="Done!"/>
+</form>
+<br>
+<br>
+<a th:href="@{/logout}" class="btn">Logout</a>
+</body>
+</html>
