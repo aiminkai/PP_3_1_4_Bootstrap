@@ -34,59 +34,22 @@ public class AdminController {
         return "index1";
     }
 
-    @RequestMapping("/user-delete/{id}")
+    @RequestMapping("/delete/{id}")
     public String deleteUser(@PathVariable("id") long id) {
         userService.deleteUser(id);
         return "redirect:/admin/";
     }
 
-    //=======================================================================
     @PostMapping
     public String addUser(User newUser) {
         userService.createUser(newUser);
         return "redirect:/admin";
     }
 
-
-
-//    @RequestMapping (value = "/delete")
-//    public String deletedUser(@ModelAttribute(value = "userToDelete") User userToDelete) {
-//        userService.deleteUser(userToDelete.getId());
-//        return "redirect:/admin";
-//    }
-
-
-    /*
-    @GetMapping()
-    public String getAllUsers(Model model) {
-        model.addAttribute("users", userService.getAllUsers());
-        return "index";
+    @PostMapping(value = "/edit")
+    public String updatedUser(@ModelAttribute(value = "userToEdit") User userToEdit) {
+        userService.updateUser(userToEdit);
+        return "redirect:/admin";
     }
 
-    @GetMapping("/new")
-    public String addUser(Model model) {
-        User user = new User();
-        model.addAttribute("newUser", user);
-        return "new";
-    }
-
-    @PostMapping()
-    public String createUser(@ModelAttribute("newUser") User user) {
-        userService.createUser(user);
-        return "redirect:/admin/";
-    }
-
-    @RequestMapping("/user-delete/{id}")
-    public String deleteUser(@PathVariable("id") int id) {
-        userService.deleteUser(id);
-        return "redirect:/admin/";
-    }
-
-    @RequestMapping("/update-info/{id}")
-    public String userInfo(Model model, @PathVariable("id") int id) {
-        User currentUser = userService.getUserById(id);
-        model.addAttribute("newUser", currentUser);
-        return "new";
-    }
-*/
 }
