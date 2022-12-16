@@ -3,7 +3,6 @@ package ru.kata.spring.boot_security.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import ru.kata.spring.boot_security.demo.model.User;
@@ -31,7 +30,7 @@ public class AdminController {
         model.addAttribute("users", userService.getAllUsers());
         model.addAttribute("user", userService.getUserByUsername(principal.getName()));
         model.addAttribute("rolesList", roleService.getAllRoles());
-        return "index1";
+        return "index";
     }
 
     @RequestMapping("/delete/{id}")
