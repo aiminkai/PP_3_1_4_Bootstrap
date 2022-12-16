@@ -109,19 +109,17 @@
                                                                 <div class="modal-body">
                                                                     <div class="vstack gap-3 text-center d-flex d-sm-flex d-md-grid justify-content-center"
                                                                          style="margin-right: -2px;padding-right: 2px;">
-                                                                        <label class="form-label"
-                                                                               style="min-width: 320px;">
-                                                                            <strong>id</strong>
-                                                                            <input class="form-control" type="text"
-                                                                                   style="min-width: 320px;"
-                                                                                   th:value="${usr.id}" name="idShowed"
-                                                                                   th:id="${'id-'+usr.id}"
-                                                                                   disabled/>
-                                                                            <input class="form-control" type="hidden"
-                                                                                   style="min-width: 320px;"
-                                                                                   th:value="${usr.id}" name="id"
-                                                                                   th:id="${'id-'+usr.id}"/>
-                                                                        </label>
+
+                                                                        <div class="row mb-4">
+                                                                            <label for="id-edit"
+                                                                                   class="fw-bold text-center">ID</label>
+                                                                            <input type="text" id="id-edit"
+                                                                                   class="form-control"
+                                                                                   th:name="id"
+                                                                                   th:disabled="disabled"
+                                                                                   th:value="${usr.id}">
+                                                                        </div>
+
 
                                                                         <div class="row mb-4">
                                                                             <label for="firstName-edit"
@@ -158,7 +156,7 @@
                                                                         <div class="row mb-4">
                                                                             <label for="username-edit"
                                                                                    class="fw-bold text-center">Username</label>
-                                                                            <input type="username"
+                                                                            <input type="text"
                                                                                    id="username-edit"
                                                                                    class="form-control"
                                                                                    th:name="username"
@@ -227,108 +225,97 @@
                                                                 <div class="modal-body">
                                                                     <div class="vstack gap-3 text-center d-flex d-sm-flex d-md-grid justify-content-center"
                                                                          style="margin-right: -2px;padding-right: 2px;">
-                                                                        <label class="form-label"
-                                                                               style="min-width: 320px;">
-                                                                            <strong>id</strong>
-                                                                            <input class="form-control" type="text"
-                                                                                   style="min-width: 320px;"
-                                                                                   th:value="${usr.id}" name="idShowed"
-                                                                                   th:id="${'id-'+usr.id}"
-                                                                                   disabled/>
-                                                                            <input class="form-control" type="hidden"
-                                                                                   style="min-width: 320px;"
-                                                                                   th:value="${usr.id}" name="id"
-                                                                                   th:id="${'id-'+usr.id}"/>
-                                                                        </label>
-                                                                        <label class="form-label"
-                                                                               style="min-width: 320px;">
-                                                                            <strong>Email</strong>
-                                                                            <input class="form-control" type="text"
-                                                                                   style="min-width: 320px;"
-                                                                                   inputmode="email" name="email"
-                                                                                   th:id="${'email-'+usr.id}"
-                                                                                   th:value="${usr.age}" disabled/>
-                                                                            <input class="form-control" type="hidden"
-                                                                                   style="min-width: 320px;"
-                                                                                   inputmode="email" name="email"
-                                                                                   th:id="${'email-'+usr.id}"
-                                                                                   th:value="${usr.age}"/>
-                                                                        </label>
-                                                                        <label class="form-label"
-                                                                               style="min-width: 320px;">
-                                                                            <strong>Password</strong>
-                                                                            <input class="form-control"
-                                                                                   type="text"
-                                                                                   th:value="${usr.password}"
-                                                                                   name="password"
-                                                                                   th:id="${'password-'+usr.id}"
-                                                                                   disabled/>
-                                                                            <input class="form-control"
-                                                                                   type="hidden"
-                                                                                   th:value="${usr.password}"
-                                                                                   name="password"
-                                                                                   th:id="${'password-'+usr.id}"/>
-                                                                        </label>
-                                                                        <label class="form-label"
-                                                                               style="min-width: 320px;">
-                                                                            <strong>Username</strong>
-                                                                            <input class="form-control" type="text"
-                                                                                   th:value="${usr.username}"
-                                                                                   name="username"
-                                                                                   th:id="${'username-'+usr.id}"
-                                                                                   disabled/>
-                                                                            <input class="form-control" type="hidden"
-                                                                                   th:value="${usr.username}"
-                                                                                   name="username"
-                                                                                   th:id="${'username-'+usr.id}"/>
-                                                                        </label>
-                                                                        <label class="form-label"
-                                                                               style="min-width: 320px;">
-                                                                            <strong>First Name</strong>
-                                                                            <input class="form-control" type="text"
-                                                                                   th:value="${usr.name}"
-                                                                                   name="firstName"
-                                                                                   th:id="${'firstName-'+usr.id}"
-                                                                                   disabled/>
-                                                                            <input class="form-control" type="hidden"
-                                                                                   th:value="${usr.name}"
-                                                                                   name="firstName"
-                                                                                   th:id="${'firstName-'+usr.id}"/>
-                                                                        </label>
-                                                                        <label class="form-label"
-                                                                               style="min-width: 320px;">
-                                                                            <strong>Last Name</strong>
-                                                                            <input class="form-control" type="text"
-                                                                                   th:value="${usr.surname}"
-                                                                                   name="lastName"
-                                                                                   th:id="${'lastName-'+usr.id}"
-                                                                                   disabled/>
-                                                                            <input class="form-control" type="hidden"
-                                                                                   th:value="${usr.surname}"
-                                                                                   name="lastName"
-                                                                                   th:id="${'lastName-'+usr.id}"/>
-                                                                        </label>
-                                                                        <label class="form-label"><strong>Role</strong>
-                                                                            <select class="form-select" multiple
-                                                                                    disabled
-                                                                                    style="padding-bottom: 0px;margin-bottom: 0px;height: 50%;"
-                                                                                    th:value="${usr.roles}" name="roles"
-                                                                                    th:id="${'roles-'+usr.id}">
-                                                                                <option th:each="role: ${rolesList}"
-                                                                                        th:value="${role}"
+                                                                        <div class="row mb-4">
+                                                                            <label for="id-delete"
+                                                                                   class="fw-bold text-center">ID</label>
+                                                                            <input type="text" id="id-delete"
+                                                                                   class="form-control"
+                                                                                   readonly
+                                                                                   th:name="id"
+                                                                                   th:disabled="disabled"
+                                                                                   th:value="${usr.id}">
+                                                                        </div>
+
+
+                                                                        <div class="row mb-4">
+                                                                            <label for="firstName-delete"
+                                                                                   class="fw-bold text-center">First
+                                                                                name</label>
+                                                                            <input type="text"
+                                                                                   id="firstName-delete"
+                                                                                   class="form-control"
+                                                                                   readonly
+                                                                                   th:name="name"
+                                                                                   th:disabled="disabled"
+                                                                                   th:value="${usr.name}">
+                                                                        </div>
+
+                                                                        <div class="row mb-4">
+                                                                            <label for="lastName-delete"
+                                                                                   class="fw-bold text-center">Last
+                                                                                name</label>
+                                                                            <input type="text"
+                                                                                   id="lastName-delete"
+                                                                                   class="form-control"
+                                                                                   readonly
+                                                                                   th:name="surname"
+                                                                                   th:disabled="disabled"
+                                                                                   th:value="${usr.surname}">
+                                                                        </div>
+
+                                                                        <div class="row mb-4">
+                                                                            <label for="age-delete"
+                                                                                   class="fw-bold text-center">Age</label>
+                                                                            <input type="number"
+                                                                                   id="age-delete"
+                                                                                   class="form-control"
+                                                                                   readonly
+                                                                                   th:name="age"
+                                                                                   th:disabled="disabled"
+                                                                                   th:value="${usr.age}">
+                                                                        </div>
+
+                                                                        <div class="row mb-4">
+                                                                            <label for="username-delete"
+                                                                                   class="fw-bold text-center">Username</label>
+                                                                            <input type="text"
+                                                                                   id="username-delete"
+                                                                                   class="form-control"
+                                                                                   readonly
+                                                                                   th:name="username"
+                                                                                   th:disabled="disabled"
+                                                                                   th:value="${usr.username}">
+                                                                        </div>
+
+                                                                        <div class="row mb-4">
+                                                                            <label for="password-delete"
+                                                                                   class="fw-bold text-center">Password</label>
+                                                                            <input type="password"
+                                                                                   id="password-delete"
+                                                                                   class="form-control"
+                                                                                   readonly
+                                                                                   th:name="password"
+                                                                                   th:disabled="disabled"
+                                                                                   th:value="${usr.password}">
+                                                                        </div>
+
+                                                                        <div class="row mb-4">
+                                                                            <label for="role-delete"
+                                                                                   class="fw-bold text-center">Role</label>
+                                                                            <select id="role-delete"
+                                                                                    class="form-select"
+                                                                                    multiple
+                                                                                    th:name="roles"
+                                                                                    th:disabled="disabled"
+                                                                                    th:size="${#sets.size(rolesList)}">
+                                                                                <option
+                                                                                        th:each="role : ${rolesList}"
                                                                                         th:text="${role.getShortName()}"
-                                                                                        th:selected="${usr.roles.contains(role)}"></option>
+                                                                                        th:value="${role.id}"
+                                                                                        th:selected="${usr.roles.contains(role)}">
+                                                                                </option>
                                                                             </select>
-                                                                            <select class="form-select" multiple hidden
-                                                                                    style="padding-bottom: 0px;margin-bottom: 0px;height: 50%;"
-                                                                                    th:value="${usr.roles}" name="roles"
-                                                                                    th:id="${'roles-'+usr.id}">
-                                                                                <option th:each="role: ${rolesList}"
-                                                                                        th:value="${role}"
-                                                                                        th:text="${role.getShortName()}"
-                                                                                        th:selected="${usr.roles.contains(role)}"></option>
-                                                                            </select>
-                                                                        </label>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="modal-footer">
