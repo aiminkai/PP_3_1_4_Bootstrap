@@ -39,9 +39,10 @@ public class InitDb {
             List<Role> userRoles = new ArrayList<>();
             userRoles.add(userRole);
 
-            userService.createUser(new User("test", "test", "test", "test",  24, testRoles));
-            userService.createUser(new User("admin", "admin", "admin", "admin", 45, adminRoles));
-            userService.createUser(new User("user", "user", "user", "user", 35, userRoles));
+            userService.createUser(new User("test@mail.com", "test", "test", "test",  24, testRoles));
+            userService.createUser(new User("admin@mail.com", "admin", "admin", "admin", 45, adminRoles));
+            userService.createUser(new User("user@mail.com", "user", "user", "user", 35, userRoles));
+            userService.createUser(new User("q", "q", "q", "q", 35,testRoles ));
         }
     }
 }
