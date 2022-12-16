@@ -230,6 +230,7 @@
                                                                                    class="form-control"
                                                                                    readonly
                                                                                    th:name="id"
+                                                                                   th:disabled="disabled"
                                                                                    th:value="${usr.id}">
                                                                         </div>
 
@@ -241,6 +242,7 @@
                                                                                    id="firstName-delete"
                                                                                    class="form-control"
                                                                                    th:name="name"
+                                                                                   th:disabled="disabled"
                                                                                    th:value="${usr.name}">
                                                                         </div>
 
@@ -252,6 +254,7 @@
                                                                                    id="lastName-delete"
                                                                                    class="form-control"
                                                                                    th:name="surname"
+                                                                                   th:disabled="disabled"
                                                                                    th:value="${usr.surname}">
                                                                         </div>
 
@@ -262,6 +265,7 @@
                                                                                    id="age-delete"
                                                                                    class="form-control"
                                                                                    th:name="age"
+                                                                                   th:disabled="disabled"
                                                                                    th:value="${usr.age}">
                                                                         </div>
 
@@ -272,6 +276,7 @@
                                                                                    id="username-delete"
                                                                                    class="form-control"
                                                                                    th:name="username"
+                                                                                   th:disabled="disabled"
                                                                                    th:value="${usr.username}">
                                                                         </div>
 
@@ -282,6 +287,7 @@
                                                                                    id="password-delete"
                                                                                    class="form-control"
                                                                                    th:name="password"
+                                                                                   th:disabled="disabled"
                                                                                    th:value="${usr.password}">
                                                                         </div>
 
@@ -292,6 +298,7 @@
                                                                                     class="form-select"
                                                                                     multiple
                                                                                     th:name="roles"
+                                                                                    th:disabled="disabled"
                                                                                     th:size="${#sets.size(rolesList)}">
                                                                                 <option
                                                                                         th:each="role : ${rolesList}"
@@ -342,28 +349,31 @@
                                 th:action="@{/admin}">
                               <div class="vstack gap-1 text-center d-flex d-sm-flex d-md-grid justify-content-center"
                                    style="margin-right: -2px;padding-right: 2px;">
-                                  <label class="form-label" style="min-width: 320px;">
-                                      <strong>Email</strong>
-                                      <input class="form-control" type="text" style="min-width: 320px;"
-                                             inputmode="email" th:field="*{age}"/>
-                                  </label>
-                                  <label class="form-label" style="min-width: 320px;">
-                                      <strong>Password</strong>
-                                      <input class="form-control" type="password" th:field="*{password}"/>
-                                  </label>
-                                  <label class="form-label" style="min-width: 320px;">
-                                      <strong>Username</strong>
-                                      <input class="form-control" type="text" th:field="*{username}"/>
-                                  </label>
+
                                   <label class="form-label"
                                          style="min-width: 320px;"><strong>First Name</strong>
                                       <input class="form-control" type="text" th:field="*{name}"/>
                                   </label>
 
-
                                   <label class="form-label" style="min-width: 320px;">
                                       <strong>Last Name</strong>
                                       <input class="form-control" type="text" th:field="*{surname}"/>
+                                  </label>
+
+                                  <label class="form-label" style="min-width: 320px;">
+                                      <strong>Age</strong>
+                                      <input class="form-control" type="text" style="min-width: 320px;"
+                                             inputmode="email" th:field="*{age}"/>
+                                  </label>
+
+                                  <label class="form-label" style="min-width: 320px;">
+                                      <strong>Email</strong>
+                                      <input class="form-control" type="text" th:field="*{username}"/>
+                                  </label>
+
+                                  <label class="form-label" style="min-width: 320px;">
+                                      <strong>Password</strong>
+                                      <input class="form-control" type="password" th:field="*{password}"/>
                                   </label>
 
                                   <label class="form-label" style="min-width: 320px; height: 85%;">
@@ -374,10 +384,6 @@
                                                   th:text="${role.getShortName()}"></option>
                                       </select>
                                   </label>
-
-
-
-
 
                                   <button class="btn btn-success" type="submit" style="min-width: 320px; padding-top: 5px;
                           padding-bottom: 5px; margin-bottom: 15px;">Add new user
@@ -406,22 +412,20 @@
                                         <thead class="table-header">
                                         <tr>
                                             <th>id</th>
-                                            <th>age</th>
-                                            <th>Username</th>
-                                            <th>Password</th>
                                             <th>First Name</th>
                                             <th>Last Lame</th>
+                                            <th>age</th>
+                                            <th>Email</th>
                                             <th>Roles</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <tr>
                                             <td th:text="${user.id}"></td>
-                                            <td th:text="${user.age}"></td>
-                                            <td th:text="${user.username}"></td>
-                                            <td th:text="${user.password}"></td>
                                             <td th:text="${user.name}"></td>
                                             <td th:text="${user.surname}"></td>
+                                            <td th:text="${user.age}"></td>
+                                            <td th:text="${user.username}"></td>
                                             <td>
                                                 <span th:each="role : ${user.getShortRoles()}"
                                                       th:text="${role.toUpperCase() + '&nbsp'}"></span>
