@@ -157,4 +157,14 @@ public class User implements UserDetails {
     public List<String> getShortRoles() {
         return roles.stream().map(Role::getShortName).toList();
     }
+
+    public String getRolesName() {
+
+            return roles.stream().map(Role::getName)
+                    .toList().toString().replace("[", "")
+                    .replace("]", "").replace("ROLE_", "")
+                    .replace(",", "");
+
+    }
+
 }

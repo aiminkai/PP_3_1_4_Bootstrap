@@ -25,7 +25,7 @@
         <p class="text-white fw-lighter h4"> with roles: </p>
       </li>
       <li class="nav-item mt-auto ps-2">
-        <p class="text-white fw-light h3" th:text="${user.getShortRoles()}"></p>
+        <p class="text-white fw-light h3" th:text="${user.getRolesName}"></p>
       </li>
     </ul>
     <form class="d-flex" method="POST" action="/logout">
@@ -67,7 +67,7 @@
             <td><a th:text="${user.getSurname()}"></a></td>
             <td><a th:text="${user.getAge()}"></a></td>
             <td><a th:text="${user.getUsername()}"></a></td>
-            <td><a th:text="${user.getShortRoles()}"></a></td>
+            <td><a th:text="${user.getRolesName()}"></a></td>
           </tr>
           </tbody>
         </table>
